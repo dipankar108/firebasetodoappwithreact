@@ -27,14 +27,15 @@ function Home() {
         <div>
             <form>
             
-                <input value={input} onChange={(event) => { setInput(event.target.value) }}>
-                    
-                </input>
-                <button disabled={
-                   !input} color="primary" onClick={handle} variant="contained" typeof='submit'>Todo</button>
+                <Input value={input} onChange={(event) => { setInput(event.target.value) }}>
+                </Input>
+                <Button disabled={
+                   !input} color="primary" onClick={handle} variant="contained" type='submit'>Todo</Button>
             </form>
             <ul>
-                {todos.map((todo) => <li className="todolist">{  todo.tododata} <button onClick={event=>db.collection("todos").doc(todo.id).delete()}>delete me</button></li>)}
+                {todos.map((todo) => <li className="todolist">{todo.tododata} <Button color='secondary'
+                    variant='contained'
+                    onClick={event => db.collection("todos").doc(todo.id).delete()}>delete me</Button></li>)}
             </ul>
         </div>
     );
